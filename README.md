@@ -1,4 +1,4 @@
-# PPWL7 Fullstack Monorepo
+# PPWL8 Fullstack Monorepo
 
 ## Deskripsi
 Proyek ini adalah monorepo modern yang dikelola menggunakan **Bun**. Proyek ini mengintegrasikan Backend (Node.js/Prisma), Frontend (React/Vite), dan Shared Packages untuk membangun aplikasi manajemen kelas (Classroom) dengan sistem autentikasi.
