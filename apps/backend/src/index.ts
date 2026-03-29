@@ -89,9 +89,13 @@ const app = new Elysia()
     });
     if (!session) return;
 
-    // Set cookie session
+    // Set cookie session dengan konfigurasi untuk Vercel (Cross-Domain)
     session.value = sessionId;
     session.maxAge = 60 * 60 * 24; // 1 hari
+    session.secure = true;         // WAJIB true jika pakai HTTPS (Vercel)
+    session.sameSite = "none";     // WAJIB "none" agar bisa dikirim antar subdomain Vercel
+    session.httpOnly = true;       // Keamanan agar cookie tidak bisa diakses lewat JS frontend
+    session.path = "/";            // Berlaku untuk seluruh rute backend
 
     // Redirect ke frontend (dynamic url)
     return redirect(`${process.env.FRONTEND_URL ?? "http://localhost:5173"}/classroom`);
